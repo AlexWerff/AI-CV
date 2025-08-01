@@ -131,7 +131,7 @@ const StaticHero: React.FC = () => {
             href="https://github.com/alexweff"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center space-x-2 text-blue-200 hover:text-blue-100 transition-colors duration-300"
+            className="group flex items-center space-x-2 text-white hover:text-blue-100 transition-colors duration-300"
           >
             <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
               🐙
@@ -142,7 +142,7 @@ const StaticHero: React.FC = () => {
             href="https://linkedin.com/in/alexander-van-der-werff"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center space-x-2 text-blue-200 hover:text-blue-100 transition-colors duration-300"
+            className="group flex items-center space-x-2 text-white hover:text-blue-100 transition-colors duration-300"
           >
             <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
               💼
@@ -151,7 +151,7 @@ const StaticHero: React.FC = () => {
           </a>
           <a
             href="mailto:alex@softrocket.net"
-            className="group flex items-center space-x-2 text-blue-200 hover:text-blue-100 transition-colors duration-300"
+            className="group flex items-center space-x-2 text-white hover:text-blue-100 transition-colors duration-300"
           >
             <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
               📧

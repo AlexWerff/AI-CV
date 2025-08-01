@@ -24,7 +24,7 @@ const TechnologyStack: React.FC<TechnologyStackProps> = ({
       key={index}
       className="flex items-center space-x-3 px-4 py-3 bg-white/20 backdrop-blur-md rounded-lg border border-white/30 hover:bg-white/30 hover:shadow-lg transition-all duration-300"
     >
-      {tech.icon && <span className="text-xl">{tech.icon}</span>}
+      {tech.icon && <span className="text-xl text-white">{tech.icon}</span>}
       <span className="font-medium text-blue-200">{tech.name}</span>
     </div>
   );
@@ -80,7 +80,7 @@ const TechnologyStack: React.FC<TechnologyStackProps> = ({
       className={`bg-white/10 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-8 ${className}`}
     >
       <h2 className="text-3xl font-bold text-blue-200 mb-8 flex items-center">
-        <span className="mr-3 text-2xl">⚡</span>
+        <span className="mr-3 text-2xl text-white">⚡</span>
         {title}
       </h2>
       {renderContent()}

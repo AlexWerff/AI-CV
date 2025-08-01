@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = ({
       className={`bg-white/10 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-8 ${className}`}
     >
       <h2 className="text-3xl font-bold text-blue-200 mb-6 flex items-center">
-        <span className="mr-3 text-2xl">👋</span>
+        <span className="mr-3 text-2xl text-white">👋</span>
         {title}
       </h2>
       <div className="text-blue-100 leading-relaxed prose prose-invert max-w-none text-lg">

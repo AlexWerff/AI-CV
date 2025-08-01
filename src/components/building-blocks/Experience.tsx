@@ -121,7 +121,7 @@ const Experience: React.FC<ExperienceProps> = ({
   return (
     <div className={`${className}`}>
       <h2 className="text-3xl font-bold text-blue-200 mb-8 flex items-center">
-        <span className="mr-3 text-2xl">💼</span>
+        <span className="mr-3 text-2xl text-white">💼</span>
         {title}
       </h2>
       {renderContent()}

@@ -51,7 +51,7 @@ const Contact: React.FC<ContactProps> = ({
     const icon = item.icon || getDefaultIcon(item.type);
     const content = (
       <div className="flex items-center space-x-3 p-4 bg-white/20 backdrop-blur-md rounded-lg border border-white/30 hover:bg-white/30 hover:shadow-lg transition-all duration-300">
-        <span className="text-xl">{icon}</span>
+        <span className="text-xl text-white">{icon}</span>
         <div className="flex-1">
           <p className="text-sm text-blue-200 font-medium">{item.label}</p>
           <p className="text-blue-100 font-semibold">{item.value}</p>
@@ -109,7 +109,7 @@ const Contact: React.FC<ContactProps> = ({
       className={`bg-white/10 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-8 ${className}`}
     >
       <h2 className="text-3xl font-bold text-blue-200 mb-8 flex items-center">
-        <span className="mr-3 text-2xl">📞</span>
+        <span className="mr-3 text-2xl text-white">📞</span>
         {title}
       </h2>
       {renderContent()}
