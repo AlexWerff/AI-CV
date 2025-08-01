@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface Project {
   title: string;
@@ -30,9 +31,11 @@ const Projects: React.FC<ProjectsProps> = ({
     >
       {project.image && (
         <div className="h-48 bg-gray-800/50 overflow-hidden">
-          <img
+          <Image
             src={project.image}
             alt={project.title}
+            width={400}
+            height={192}
             className="w-full h-full object-cover"
           />
         </div>
@@ -105,9 +108,11 @@ const Projects: React.FC<ProjectsProps> = ({
           <div className="flex items-start space-x-4">
             {project.image && (
               <div className="flex-shrink-0 w-24 h-24 bg-gray-800/50 rounded-xl overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
+                  width={96}
+                  height={96}
                   className="w-full h-full object-cover"
                 />
               </div>

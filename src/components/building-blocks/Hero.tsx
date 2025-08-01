@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface HeroProps {
   name: string;
@@ -21,9 +22,11 @@ const Hero: React.FC<HeroProps> = ({
     >
       {avatar && (
         <div className="mb-6">
-          <img
+          <Image
             src={avatar}
             alt={name}
+            width={96}
+            height={96}
             className="w-24 h-24 rounded-full mx-auto border-4 border-white/30 shadow-lg"
           />
         </div>

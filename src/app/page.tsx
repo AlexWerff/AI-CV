@@ -7,57 +7,12 @@ import SpaceBackground from "@/components/SpaceBackground";
 import { usePageGeneration } from "@/hooks/usePageGeneration";
 
 export default function Home() {
-  const {
-    prompt,
-    setPrompt,
-    isLoading,
-    generatedPage,
-    error,
-    handleQuickSearch,
-    handleSubmit,
-    resetSearch,
-  } = usePageGeneration();
-
-  // Listen for search events from StaticHero
-  React.useEffect(() => {
-    const handleSearchEvent = (event: CustomEvent) => {
-      const { type } = event.detail;
-
-      switch (type) {
-        case "full-cv":
-          handleQuickSearch(
-            "Show me the full CV with all experiences and projects"
-          );
-          break;
-        case "scala":
-          handleQuickSearch(
-            "Show me Scala development experience and projects"
-          );
-          break;
-        case "typescript":
-          handleQuickSearch(
-            "Show me fullstack development experience with React, TypeScript, Node.js and related technologies"
-          );
-          break;
-        case "custom":
-          if (event.detail.query) {
-            handleQuickSearch(event.detail.query);
-          }
-          break;
-      }
-    };
-
-    window.addEventListener("search", handleSearchEvent as EventListener);
-
-    return () => {
-      window.removeEventListener("search", handleSearchEvent as EventListener);
-    };
-  }, [handleQuickSearch]);
+  const { isLoading, generatedPage, handleQuickSearch } = usePageGeneration();
 
   return (
     <SpaceBackground>
       {/* Static Hero Section */}
-      <StaticHero />
+      <StaticHero onSearch={handleQuickSearch} />
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-12">
