@@ -26,7 +26,7 @@ const StaticHero: React.FC = () => {
         rel="noopener noreferrer"
         className="absolute top-8 right-8 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium flex items-center space-x-2"
       >
-        <span className="text-lg">🐙</span>
+        <img src="/icons/code.svg" alt="Source Code" className="w-5 h-5" />
         <span>Source Code</span>
       </a>
 
@@ -133,9 +133,11 @@ const StaticHero: React.FC = () => {
             rel="noopener noreferrer"
             className="group flex items-center space-x-2 text-white hover:text-blue-100 transition-colors duration-300"
           >
-            <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
-              🐙
-            </span>
+            <img
+              src="/icons/github.svg"
+              alt="GitHub"
+              className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
+            />
             <span className="text-lg font-medium">GitHub</span>
           </a>
           <a
@@ -144,18 +146,22 @@ const StaticHero: React.FC = () => {
             rel="noopener noreferrer"
             className="group flex items-center space-x-2 text-white hover:text-blue-100 transition-colors duration-300"
           >
-            <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
-              💼
-            </span>
+            <img
+              src="/icons/linkedin.svg"
+              alt="LinkedIn"
+              className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
+            />
             <span className="text-lg font-medium">LinkedIn</span>
           </a>
           <a
             href="mailto:alex@softrocket.net"
             className="group flex items-center space-x-2 text-white hover:text-blue-100 transition-colors duration-300"
           >
-            <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
-              📧
-            </span>
+            <img
+              src="/icons/email.svg"
+              alt="Email"
+              className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
+            />
             <span className="text-lg font-medium">Contact</span>
           </a>
         </div>
