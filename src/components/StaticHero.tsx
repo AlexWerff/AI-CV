@@ -18,7 +18,18 @@ const StaticHero: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-screen relative">
+      {/* Source Code Button */}
+      <a
+        href="https://github.com/AlexWerff/AI-CV"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-8 right-8 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium flex items-center space-x-2"
+      >
+        <span className="text-lg">🐙</span>
+        <span>Source Code</span>
+      </a>
+
       <div className="text-center px-4">
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
           Alexander van der Werff
