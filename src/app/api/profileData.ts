@@ -210,7 +210,6 @@ Akka
 +4 more
 Technical Integration Manager / Scala Developer
 RISK IDENT
-
 Hamburg, Germany
 
 Jan 2019 - Nov 2020

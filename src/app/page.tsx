@@ -19,7 +19,7 @@ export default function Home() {
         {/* Generated Page Section */}
         {isLoading && (
           <div className="">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-300 mx-auto mb-6"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-300 mx-auto mb-6 -mt-24"></div>
           </div>
         )}
 

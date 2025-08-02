@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { GeneratedPageData } from "@/lib/openai";
+import { STATIC_FULL_CV } from "@/app/api/generate/staticContent";
 
 export const usePageGeneration = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [generatedPage, setGeneratedPage] = useState<GeneratedPageData | null>(
-    null
+    STATIC_FULL_CV
   );
   const [error, setError] = useState<string | null>(null);
 
