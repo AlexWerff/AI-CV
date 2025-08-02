@@ -2,19 +2,16 @@ import { useState } from "react";
 import { GeneratedPageData } from "@/lib/openai";
 
 export const usePageGeneration = () => {
-  const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [generatedPage, setGeneratedPage] = useState<GeneratedPageData | null>(
     null
   );
   const [error, setError] = useState<string | null>(null);
-  const [showCustomInput, setShowCustomInput] = useState(false);
 
   const generatePage = async (searchPrompt: string) => {
     setIsLoading(true);
     setError(null);
     setGeneratedPage(null);
-    setShowCustomInput(false);
 
     try {
       const response = await fetch("/api/generate", {
@@ -39,39 +36,19 @@ export const usePageGeneration = () => {
     }
   };
 
-  const handleQuickSearch = async (searchPrompt: string) => {
-    setPrompt(searchPrompt);
-    await generatePage(searchPrompt);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!prompt.trim()) {
-      setError("Please enter a prompt");
-      return;
-    }
-
-    await generatePage(prompt);
-  };
-
   const resetSearch = () => {
     setGeneratedPage(null);
-    setShowCustomInput(false);
     setError(null);
   };
 
   return {
     // State
-    prompt,
-    setPrompt,
     isLoading,
     generatedPage,
     error,
 
     // Actions
-    handleQuickSearch,
-    handleSubmit,
+    generatePage,
     resetSearch,
   };
 };

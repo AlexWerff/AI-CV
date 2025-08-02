@@ -226,6 +226,8 @@ Make sure the response is valid JSON and includes appropriate content based on t
 
     const content = response.choices[0]?.message?.content;
     if (!content) {
+      console.error("No response from OpenAI");
+      console.error(response);
       throw new Error("No response from OpenAI");
     }
 

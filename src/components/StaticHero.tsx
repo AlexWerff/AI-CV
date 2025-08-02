@@ -2,21 +2,15 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 interface StaticHeroProps {
-  onSearch: (
-    query: string,
-    type: "full-cv" | "scala" | "typescript" | "custom"
-  ) => void;
+  onSearch: (query: string) => void;
 }
 
 const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      onSearch(searchQuery, "custom");
-      setSearchQuery("");
+  const handleSearchSubmit = (queryText: string) => {
+    if (queryText.trim()) {
+      onSearch(queryText);
       setShowSearchInput(false);
     }
   };
@@ -30,7 +24,13 @@ const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
         rel="noopener noreferrer"
         className="absolute top-8 right-8 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium flex items-center space-x-2"
       >
-        <Image src="/icons/code.svg" alt="Source Code" width={20} height={20} />
+        <Image
+          src="/icons/code.svg"
+          alt="Source Code"
+          width={20}
+          height={20}
+          className="group-hover:scale-110 transition-transform duration-300"
+        />
         <span>Source Code</span>
       </a>
 
@@ -53,7 +53,7 @@ const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
             <>
               <button
                 onClick={() => {
-                  onSearch(searchQuery, "full-cv");
+                  onSearch("full_cv");
                 }}
                 className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/30 transition-all duration-500 ease-in-out font-medium"
               >
@@ -61,7 +61,7 @@ const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
               </button>
               <button
                 onClick={() => {
-                  onSearch(searchQuery, "scala");
+                  onSearch("scala");
                 }}
                 className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/30 transition-all duration-500 ease-in-out font-medium"
               >
@@ -69,7 +69,7 @@ const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
               </button>
               <button
                 onClick={() => {
-                  onSearch(searchQuery, "typescript");
+                  onSearch("typescript");
                 }}
                 className="px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white hover:bg-white/20 hover:border-white/30 transition-all duration-500 ease-in-out font-medium"
               >
@@ -86,16 +86,19 @@ const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
 
           {showSearchInput && (
             <form
-              onSubmit={handleSearchSubmit}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const queryText = (e.target as HTMLFormElement).prompt.value;
+                handleSearchSubmit(queryText);
+              }}
               className="w-full max-w-2xl mx-auto flex gap-2 animate-fadeIn"
             >
               <input
                 type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search for specific skills or experiences..."
                 className="flex-1 px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40 transition-all duration-300 font-medium"
                 autoFocus
+                name="prompt"
               />
               <button
                 type="submit"
@@ -107,7 +110,6 @@ const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
                 type="button"
                 onClick={() => {
                   setShowSearchInput(false);
-                  setSearchQuery("");
                 }}
                 className="px-4 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg text-white hover:bg-white/20 transition-all duration-300 font-medium"
               >
@@ -162,13 +164,6 @@ const StaticHero: React.FC<StaticHeroProps> = ({ onSearch }) => {
             />
             <span className="text-lg font-medium">Contact</span>
           </a>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </div>
